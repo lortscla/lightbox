@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lightbox exercise</title>
+
+<style>
+  .gallery img {
+    height: 200px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 6px;
+  }
+
+</style>
+
+</head>
+<body>
+
+    <p1> Arabidopsis thaliana Life Cycles </p1>
+    
+<div class="gallery">
+  
+  <img src="Arabi_IG_Complete_05.webp" alt="infographic">
+  <img src="8_Arabidopsis_Flowering_full.webp" alt="rosette flowering">
+  <img src="4_Arabidopsis_full_rosette.webp" alt="rosette">
+
+</div>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.onclick = () => {
+      lbImg.src = img.src;
+      lb.style.display = "flex";
+    };
+  });
+
+  lb.onclick = () => lb.style.display = "none";
+</script>
+
+</body>
+</html>
